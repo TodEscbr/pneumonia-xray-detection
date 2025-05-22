@@ -5,8 +5,6 @@ __pycache__/
 # Dataset
 chest_xray/
 
-# Model file
-#*.pth
 
 # Env / System
 .env
