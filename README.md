@@ -4,6 +4,8 @@ A simple web app to detect pneumonia from chest X-ray images using a CNN model b
 
 🔗 **Live App**: [Click to Open](https://pneumonia-xray-detection-qjga3lwjs6x4htk4heuyni.streamlit.app)
 
+⚠️ **Note**: This system is trained only to classify chest X-ray images as either `NORMAL` or `PNEUMONIA`. It may incorrectly classify unrelated or non-X-ray images, as well as other diseases, as `PNEUMONIA`, because it was not trained to recognize other categories or conditions.
+
 ---
 
 ## 📦 How to Use (Local Setup)
