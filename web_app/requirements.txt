@@ -3,3 +3,5 @@ torchvision
 streamlit
 pillow
 numpy
+pandas
+gdown
