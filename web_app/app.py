@@ -4,6 +4,10 @@ import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
 import numpy as np
+import os
+import gdown
+
+
 
 class PneumoniaCNN(nn.Module):
     def __init__(self):
@@ -20,17 +24,28 @@ class PneumoniaCNN(nn.Module):
     def forward(self, x):
         return self.net(x)
 
+
+model_path = "pneumonia_model.pth"
+file_id = "1fJlZjbS4baa-gKsEPxiloiwwU3Yr1Ucm"
+gdrive_url = f"https://drive.google.com/uc?id={file_id}"
+
+if not os.path.exists(model_path):
+    with st.spinner("Memuat turun model..."):
+        gdown.download(gdrive_url, model_path, quiet=False)
+
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = PneumoniaCNN()
-model.load_state_dict(torch.load("pneumonia_model.pth", map_location=device))
+model.load_state_dict(torch.load(model_path, map_location=device))
 model.eval()
+
 
 st.title("Sistem Pengesanan Pneumonia (PyTorch)")
 uploaded_file = st.file_uploader("Muat naik gambar X-ray", type=["jpg", "jpeg", "png"])
 
 if uploaded_file:
     img = Image.open(uploaded_file).convert("RGB")
-    st.image(img, caption="Gambar X-ray",  use_container_width=True)
+    st.image(img, caption="Gambar X-ray", use_container_width=True)
     
     transform = transforms.Compose([
         transforms.Resize((150, 150)),
