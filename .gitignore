@@ -1,0 +1,14 @@
+# Cache & Python
+__pycache__/
+*.pyc
+
+# Dataset
+chest_xray/
+
+# Model file
+*.pth
+
+# Env / System
+.env
+*.zip
+.DS_Store
