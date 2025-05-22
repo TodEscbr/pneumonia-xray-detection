@@ -6,7 +6,7 @@ __pycache__/
 chest_xray/
 
 # Model file
-*.pth
+#*.pth
 
 # Env / System
 .env
