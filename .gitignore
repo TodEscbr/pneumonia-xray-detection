@@ -5,7 +5,6 @@ __pycache__/
 # Dataset
 chest_xray/
 
-
 # Env / System
 .env
 *.zip
